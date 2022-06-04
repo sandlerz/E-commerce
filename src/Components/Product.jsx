@@ -1,7 +1,10 @@
 import { cartPlus } from '../Assets/Images'
 import { useNavigate, useLocation } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { addItem } from './Cart/CartSlice'
 
 export default function Product({ data }) {
+  const dispatch = useDispatch()
   const { title, price, image, id } = data
   const navigate = useNavigate()
   const { pathname } = useLocation()
@@ -14,13 +17,27 @@ export default function Product({ data }) {
     }
   }
 
+  const handleAddCart = () => {
+    dispatch(
+      addItem({
+        ...data,
+        amount: 1,
+      })
+    )
+  }
+
   return (
-    <div className="product" onClick={handleProduct}>
-      <img className="product__img" src={image} alt="product" />
+    <div className="product">
+      <img
+        className="product__img"
+        src={image}
+        alt="product"
+        onClick={handleProduct}
+      />
       <span className="product__title">{title}</span>
       <div className="product__body">
         <span className="product__body__price">$ {price}</span>
-        <div className="product__body__cart">
+        <div className="product__body__cart" onClick={handleAddCart}>
           <img src={cartPlus} alt="" />
         </div>
       </div>

@@ -1,7 +1,16 @@
 import { NavLink } from 'react-router-dom'
 import { cartEmpty } from '../Assets/Images'
+import { useDispatch, useSelector } from 'react-redux'
+import { showCart, selectShowCart } from './Cart/CartSlice'
 
 export default function Navbar() {
+  const showCartState = useSelector(selectShowCart)
+  const dispatch = useDispatch()
+
+  const handleShowCart = () => {
+    dispatch(showCart(!showCartState))
+  }
+
   return (
     <header className="navbar">
       <div className="navbar__container">
@@ -31,7 +40,10 @@ export default function Navbar() {
               </NavLink>
             </li>
           </ul>
-          <div className="navbar__container__nav__cart">
+          <div
+            className="navbar__container__nav__cart"
+            onClick={handleShowCart}
+          >
             <img src={cartEmpty} alt="" />
           </div>
         </nav>
