@@ -1,0 +1,7 @@
+export { default as instagram } from './instagram.png'
+export { default as facebook } from './facebook.png'
+export { default as banner } from './banner.jpg'
+export { default as cartPlus } from './cart-plus.png'
+export { default as cartEmpty } from './cart-empty.png'
+export { default as plus } from './plus.png'
+export { default as less } from './less.png'
