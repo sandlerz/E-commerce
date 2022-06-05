@@ -18,7 +18,22 @@ const cart = createSlice({
           amount: (cart[find].amount += payload.amount),
         }
       } else {
-        state.cart = [...state.cart, payload]
+        state.cart = [...cart, payload]
+      }
+    },
+    removeItem: (state, action) => {
+      let { cart } = state
+      const { payload } = action
+      const find = cart.findIndex(item => item.id === payload.id)
+
+      if (find >= 0) {
+        cart[find] = {
+          ...cart[find],
+          amount: (cart[find].amount -= payload.amount),
+        }
+      }
+      if (cart[find].amount === 0) {
+        cart.splice(find, 1)
       }
     },
     deleteItem: (state, action) => {
@@ -35,6 +50,6 @@ const cart = createSlice({
 export const selectShowCart = state => state.cart.showCart
 export const selectCart = state => state.cart.cart
 
-export const { showCart, addItem, deleteItem } = cart.actions
+export const { showCart, addItem, deleteItem, removeItem } = cart.actions
 
 export default cart.reducer

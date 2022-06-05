@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react'
 
-export default function PopupAdded({ setShow, show }) {
+export default function PopupAdded() {
   const [showPopup, setShowPopup] = useState(true)
 
   useEffect(() => {
     const timeId = setTimeout(() => {
       setShowPopup(false)
-      // setShow(false)
     }, 1000)
     return () => clearTimeout(timeId)
-  }, [setShow])
+  }, [])
 
   if (!showPopup) return null
 
