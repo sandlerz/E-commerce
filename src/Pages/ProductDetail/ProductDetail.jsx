@@ -23,6 +23,7 @@ export default function ProductDetail() {
   }
 
   const handleAddCart = () => {
+    if (count === 0) return
     dispatch(addItem({ ...data, amount: count }))
     setCount(0)
   }
@@ -39,7 +40,7 @@ export default function ProductDetail() {
         <div className="productDetail__details__cart">
           <div className="productDetail__details__cart__plus-less">
             <div
-              className="productDetail__details__cart__plus-less__icon"
+              className="productDetail__details__cart__plus-less__icon red"
               onClick={handleLess}
             >
               <img src={less} alt="" />
@@ -48,7 +49,7 @@ export default function ProductDetail() {
               {count}
             </span>
             <div
-              className="productDetail__details__cart__plus-less__icon"
+              className="productDetail__details__cart__plus-less__icon green"
               onClick={handlePlus}
             >
               <img src={plus} alt="" />

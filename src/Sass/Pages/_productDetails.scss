@@ -21,6 +21,7 @@
     padding: 0 40px;
     background-color: var(--white);
     padding: 40px;
+    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2);
 
     img {
       height: 100%;
@@ -56,6 +57,7 @@
         justify-content: space-between;
         align-items: center;
         overflow: hidden;
+        box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2);
 
         &__quantity {
           color: var(--black);
@@ -69,10 +71,13 @@
           max-width: 40px;
           cursor: pointer;
           transition: background 0.1s;
+        }
+        .green:hover {
+          background-color: var(--green);
+        }
 
-          &:hover {
-            background-color: var(--black);
-          }
+        .red:hover {
+          background-color: var(--red);
         }
       }
 
@@ -82,9 +87,10 @@
         cursor: pointer;
         font-size: 16px;
         transition: background 0.1s;
+        box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2);
 
         &:hover {
-          background-color: var(--black);
+          background-color: var(--green);
           color: var(--white);
         }
       }
