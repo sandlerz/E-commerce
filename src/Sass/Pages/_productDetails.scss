@@ -1,11 +1,17 @@
 .productDetail {
   max-width: 1350px;
-  margin: auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 50px;
-  padding: 60px 0;
+  padding: 0 20px;
+  margin: 40px 0;
+  margin-inline: auto;
   color: var(--white);
+
+  @media only screen and (max-width: 750px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
 
   &__img {
     max-width: 100%;

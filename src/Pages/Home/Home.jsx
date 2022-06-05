@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { fetchProducts, selectProducts } from './HomeSlice'
 import Product from '../../Components/Product'
+import Loader from '../../Components/Loader'
 
 export default function Home() {
   const products = useSelector(selectProducts)
@@ -31,7 +32,9 @@ export default function Home() {
             All Products
           </Link>
         </header>
-        <div className="home__products__container">{mapProducts}</div>
+        <div className="home__products__container">
+          {mapProducts.length > 0 ? mapProducts : <Loader amount={4} />}
+        </div>
       </section>
       <section className="home__aboutUs">
         <h2 className="home__aboutUs__title">About Us</h2>

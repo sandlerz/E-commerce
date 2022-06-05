@@ -2,10 +2,17 @@ import { NavLink } from 'react-router-dom'
 import { cartEmpty } from '../Assets/Images'
 import { useDispatch, useSelector } from 'react-redux'
 import { showCart, selectShowCart } from './Cart/CartSlice'
+import { selectCart } from './Cart/CartSlice'
 
 export default function Navbar() {
   const showCartState = useSelector(selectShowCart)
+  const cartAmount = useSelector(selectCart)
   const dispatch = useDispatch()
+
+  const cartAmountTotal = cartAmount.reduce(
+    (prev, curr) => prev + curr.amount,
+    0
+  )
 
   const handleShowCart = () => {
     dispatch(showCart(!showCartState))
@@ -45,6 +52,11 @@ export default function Navbar() {
             onClick={handleShowCart}
           >
             <img src={cartEmpty} alt="" />
+            {cartAmountTotal > 0 && (
+              <div className="navbar__container__nav__cart__amount">
+                {cartAmountTotal}
+              </div>
+            )}
           </div>
         </nav>
       </div>

@@ -10,6 +10,12 @@
   flex-direction: column;
   justify-content: space-between;
 
+  &:hover {
+    box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.2),
+      2px 2px 1px 0px rgba(0, 0, 0, 0.2);
+    transform: translate(-2px, -2px);
+  }
+
   &__img {
     position: absolute;
     top: 0;
@@ -60,4 +66,9 @@
     background-color: #ffffff;
     z-index: -10;
   }
+}
+
+.loader {
+  display: grid;
+  place-content: center;
 }

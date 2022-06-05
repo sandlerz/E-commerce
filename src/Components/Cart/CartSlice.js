@@ -9,12 +9,22 @@ const cart = createSlice({
   reducers: {
     addItem: (state, action) => {
       let { cart } = state
-      const find = cart.findIndex(item => item.id === action.payload.id)
+      const { payload } = action
+      const find = cart.findIndex(item => item.id === payload.id)
+
       if (find >= 0) {
-        cart[find] = { ...cart[find], amount: (cart[find].amount += 1) }
+        cart[find] = {
+          ...cart[find],
+          amount: (cart[find].amount += payload.amount),
+        }
       } else {
-        state.cart = [...state.cart, action.payload]
+        state.cart = [...state.cart, payload]
       }
+    },
+    deleteItem: (state, action) => {
+      let { cart } = state
+      const find = cart.findIndex(item => item.id === action.payload)
+      cart.splice(find, 1)
     },
     showCart: (state, action) => {
       state.showCart = action.payload
@@ -25,6 +35,6 @@ const cart = createSlice({
 export const selectShowCart = state => state.cart.showCart
 export const selectCart = state => state.cart.cart
 
-export const { showCart, addItem } = cart.actions
+export const { showCart, addItem, deleteItem } = cart.actions
 
 export default cart.reducer

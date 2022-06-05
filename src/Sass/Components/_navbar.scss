@@ -1,38 +1,55 @@
 .navbar {
   background-color: var(--black);
-  padding: 30px;
+  padding: 1.875rem;
+  margin-bottom: 1.25rem;
 
   &__container {
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    max-width: 1350px;
+    max-width: 84.375rem;
     width: 100%;
     margin: auto;
 
     &__logo {
       position: absolute;
       left: 0;
-      width: 100px;
-      height: 40px;
-      border-radius: 10px;
-      background-color: var(--white);
+      width: 6.25rem;
+      height: 2.5rem;
+      border-radius: 0.625rem;
+      display: grid;
+      place-content: center;
+      font-size: 2rem;
+      font-weight: 800;
+      background-color: var(--main-color);
+      color: var(--black);
+
+      @media only screen and (max-width: 450px) {
+        width: 70px;
+        height: 25px;
+        font-size: 1rem;
+      }
     }
 
     &__nav {
       display: flex;
-      gap: 40px;
+      gap: 2.5rem;
       align-items: center;
 
       &__navItems {
         display: flex;
-        gap: 28px;
+        gap: 1.75rem;
+
+        @media only screen and (max-width: 400px) {
+          flex-direction: column;
+          align-items: center;
+        }
 
         &__item {
           .navLink {
             text-decoration: none;
-            font-size: 18px;
+            font-size: 1.125rem;
             font-weight: 800;
             color: var(--white);
           }
@@ -44,19 +61,41 @@
       }
 
       &__cart {
-        max-width: 40px;
+        position: relative;
+        max-width: 2.5rem;
+        min-width: 2.5rem;
         border-radius: 50%;
-        padding: 5px;
+        padding: 0.3125rem;
         cursor: pointer;
         transition: background 0.2s;
 
-        img {
-          position: relative;
-          right: 2px;
+        @media only screen and (max-width: 600px) {
+          position: absolute;
+          right: 0;
         }
 
         &:hover {
           background-color: #819dab46;
+        }
+
+        img {
+          position: relative;
+          right: 0.125rem;
+        }
+
+        &__amount {
+          width: 18px;
+          height: 18px;
+          background-color: #4caf50;
+          border-radius: 50%;
+          position: absolute;
+          top: 0;
+          right: 5px;
+          display: grid;
+          place-content: center;
+          font-size: 12px;
+          font-weight: 600;
+          color: var(--white);
         }
       }
     }

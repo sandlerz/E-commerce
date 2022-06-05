@@ -39,6 +39,7 @@
     ]
   },
   "devDependencies": {
-    "sass": "^1.52.2"
+    "sass": "^1.52.2",
+    "spinners-react": "^1.0.7"
   }
 }

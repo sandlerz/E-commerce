@@ -1,39 +1,52 @@
 .footer {
   display: grid;
   place-content: center;
-  gap: 40px;
+  gap: 2.5rem;
   background-color: var(--black);
-  padding: 50px 0 20px;
+  padding: 3.125rem 0 1.25rem;
   color: var(--white);
 
   &__contact {
     display: flex;
-    gap: 70px;
+    gap: 4.375rem;
+
+    @media only screen and (max-width: 27.5em) {
+      flex-direction: column;
+      gap: 2.5rem;
+    }
 
     &__network {
-      width: 160px;
+      width: 10rem;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 0.625rem;
+
+      @media only screen and (max-width: 27.5em) {
+        align-items: center;
+      }
 
       &__container-icons {
         display: flex;
-        gap: 8px;
+        gap: 0.5rem;
 
         &__icon {
-          max-width: 30px;
+          max-width: 1.875rem;
         }
       }
     }
 
     &__contact {
-      width: 160px;
+      width: 10rem;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 0.5rem;
+
+      @media only screen and (max-width: 27.5em) {
+        align-items: center;
+      }
 
       &__info {
-        font-size: 14px;
+        font-size: 0.875rem;
         font-weight: 400;
       }
     }
@@ -41,11 +54,11 @@
 
   &__copyright {
     text-align: center;
-    font-size: 10px;
+    font-size: 0.625rem;
   }
 }
 
 .footer__title {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 600;
 }
